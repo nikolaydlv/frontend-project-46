@@ -1,18 +1,13 @@
 env:
   es2021: true
   node: true
-extends: airbnb-base
-overrides: []
+  jest: true
+extends:
+  - airbnb-base
 parserOptions:
-  ecmaVersion: latest
+  ecmaVersion: 2020
   sourceType: module
-rules: 
+rules:
   no-console: 0
-  import/extensions: # FIXME: remove when rule will be adjusted for new nodejs version
-    - error
-    - ignorePackages
-    - js: always
+  import/extensions: 0 # FIXME: remove when rule will be adjusted for new nodejs version
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
-  
-
-
