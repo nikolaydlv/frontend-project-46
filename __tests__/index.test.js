@@ -13,3 +13,10 @@ test('result', () => {
   const expectedResult = readFile('result.txt');
   expect(result).toEqual(expectedResult);
 });
+
+test('yaml/yml comparsion', () => {
+  const filepath1 = getFixturePath('filepath1.yml');
+  const filepath2 = getFixturePath('filepath2.yml');
+  const excpectedYml = readFile('correctyaml.txt');
+  expect(genDiff(filepath1, filepath2)).toEqual(excpectedYml);
+});
