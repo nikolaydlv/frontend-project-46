@@ -6,3 +6,5 @@
 <a href="https://codeclimate.com/github/nikolaydlv/frontend-project-46/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4806998a932d095f6d10/test_coverage" /></a>
 
 https://asciinema.org/a/bKvDunZqbJtUo0xIXu44Oglq4
+
+https://asciinema.org/a/BMoKrXAcFePKDHd3jcjqzKSdq
