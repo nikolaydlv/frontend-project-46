@@ -1,14 +1,12 @@
 import yaml from 'js-yaml';
 
-const parse = (filepath) => {
-  const extension = filepath.split('.').at(-1);
-
+const parse = (data, extension) => {
   switch (extension) {
     case 'json':
-      return JSON.parse(filepath);
+      return JSON.parse(data);
     case 'yaml':
     case 'yml':
-      return yaml.load(filepath);
+      return yaml.load(data);
     default:
       throw new Error('Not supported file extension');
   }
