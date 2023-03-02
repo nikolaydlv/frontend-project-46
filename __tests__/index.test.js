@@ -11,10 +11,13 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 test('result', () => {
   const result = makeDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
   const resultPlain = makeDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain');
+  const resultJson = makeDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json');
   const expectedResult = readFile('correctjsondiff.txt');
   const expectedResultPlain = readFile('correctplaindiff.txt');
+  const expectedResultJson = readFile('correctjsonformat.txt');
   expect(result).toEqual(expectedResult);
   expect(resultPlain).toEqual(expectedResultPlain);
+  expect(resultJson).toEqual(expectedResultJson);
 });
 
 test('yaml/yml comparsion', () => {
