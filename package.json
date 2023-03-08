@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/nikolaydlv/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/nikolaydlv/frontend-project-46/actions)",
+  "description": "difference calculator project",
   "main": "src/index.js",
   "type": "module",
   "scripts": {

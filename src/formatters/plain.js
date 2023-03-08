@@ -16,20 +16,22 @@ const getPlainFormat = (data, parent = '') => {
   return clone.map((node) => {
     const { status, key } = node;
     const path = [parent, key].filter((item) => item).join('.');
-    if (status === 'removed') {
-      return `Property '${path}' was removed`;
+    const {
+      previous, current, value, children,
+    } = node;
+    const added = generateString(value);
+    switch (status) {
+      case 'removed':
+        return `Property '${path}' was removed`;
+      case 'updated':
+        return `Property '${path}' was updated. From ${generateString(previous)} to ${generateString(current)}`;
+      case 'added':
+        return `Property '${path}' was added with value: ${added}`;
+      case 'nested':
+        return getPlainFormat(children, path);
+      default:
+        return null;
     }
-    if (status === 'updated') {
-      const { previous, current } = node;
-      return `Property '${path}' was updated. From ${generateString(previous)} to ${generateString(current)}`;
-    }
-    if (status === 'added') {
-      const { value } = node;
-      const added = generateString(value);
-      return `Property '${path}' was added with value: ${added}`;
-    }
-    const { children } = node;
-    return status === 'nested' ? getPlainFormat(children, path) : null;
   }).filter((item) => item).join('\n');
 };
 
